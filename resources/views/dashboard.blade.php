@@ -1,18 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-    <title>Dashboard Perpustakaan</title>
+    <meta charset="UTF-8">
+    <title>Daftar Buku Perpustakaan</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #f4f4f4; }
+    </style>
 </head>
 <body>
-    <h1>Selamat Datang di Sistem Perpustakaan</h1>
-    <nav>
-        <ul>
-            <li><a href="/dashboard">Dashboard</a></li>
-            <li><a href="/books">Daftar Buku</a></li>
-            <li><a href="/categories">Kategori Buku</a></li>
-            <li><a href="/members">Daftar Anggota</a></li>
-        </ul>
-    </nav>
-    <p>Ini adalah halaman utama sistem perpustakaan.</p>
+    <h2>Daftar Buku Perpustakaan</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Judul Buku</th>
+                <th>Penulis</th>
+                <th>Tahun Terbit</th>
+                <th>Stok</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($books as $book)
+            <tr>
+                <td>{{ $book->id }}</td>
+                <td>{{ $book->title }}</td>
+                <td>{{ $book->author }}</td>
+                <td>{{ $book->year }}</td>
+                <td>{{ $book->stock }}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
 </body>
 </html>
